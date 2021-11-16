@@ -9,14 +9,6 @@ Classes pour représenter un personnage.
 import random
 
 import utils
-"""
-	Une arme dans le jeu.
-
-	:param name: Le nom de l'arme
-	:param power: Le niveau d'attaque
-	:param min_level: Le niveau minimal pour l'utiliser
-	"""
-
 
 
 class Weapon:
@@ -38,14 +30,15 @@ class Weapon:
 
 
 
-	
 class Character:
-	def __init__(self, name, max_hp, attack, defense, level):
+	def __init__(self, name, max_hp, attack, defense, level, weapon, hp):
 		self.__name = name
 		self.max_hp = max_hp
 		self.attack = attack
 		self.defense = defense
-		self.defense = defense
+		self.level = level
+		self.weapon = weapon
+		self.hp = max_hp
 
 
 	"""
