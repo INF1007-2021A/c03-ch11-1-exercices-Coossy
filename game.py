@@ -6,6 +6,7 @@ Classes pour représenter un personnage.
 
 
 
+from _typeshed import Self
 import random
 
 import utils
@@ -40,16 +41,34 @@ class Character:
 		self.weapon = weapon
 		self.hp = max_hp
 
+	@property
+	def name(self):
+		return self.__name
 
-	"""
-	Un personnage dans le jeu
+	@property
+	def weapon(self):
+		return self.__weapon
 
-	:param name: Le nom du personnage
-	:param max_hp: HP maximum
-	:param attack: Le niveau d'attaque du personnage
-	:param defense: Le niveau de défense du personnage
-	:param level: Le niveau d'expérience du personnage
-	"""
+	@weapon.setter
+	def weapon(self, val):
+		if val is None:
+			val = Weapon.make_unarmed()
+		if val.min_level > self.level:
+			raise ValueError(Weapon)
+		self.__weapon = val 
+
+	@property
+	def hp(self):
+		return self.__hp
+
+	@hp.setter
+	def hp(self, val):
+		self.__hp = utils.clamp(val, 0, self.max_hp)
+	
+
+	
+	#TODO : Méthode "compute_damage"
+	
 
 
 
@@ -70,3 +89,4 @@ def run_battle(c1, c2):
 			break
 		# Échanger attaquant/défendeur
 	# TODO: Retourner nombre de tours effectués
+	return ...
