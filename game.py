@@ -5,13 +5,11 @@ Classes pour représenter un personnage.
 """
 
 
+
 import random
 
 import utils
-
-
-class Weapon:
-	"""
+"""
 	Une arme dans le jeu.
 
 	:param name: Le nom de l'arme
@@ -19,10 +17,37 @@ class Weapon:
 	:param min_level: Le niveau minimal pour l'utiliser
 	"""
 
+
+
+class Weapon:
+
 	UNARMED_POWER = 20
 
+	def __init__(self, name, power, min_level):
+		self.__name = name
+		self.power = power
+		self.min_level = min_level
 
+	@property
+	def name(self):
+		return self.__name
+
+	@classmethod
+	def make_unarmed(cls):
+		return cls("Unarmed", cls.UNARMED_POWER, 1)
+
+
+
+	
 class Character:
+	def __init__(self, name, max_hp, attack, defense, level):
+		self.__name = name
+		self.max_hp = max_hp
+		self.attack = attack
+		self.defense = defense
+		self.defense = defense
+
+
 	"""
 	Un personnage dans le jeu
 
