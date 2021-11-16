@@ -65,11 +65,10 @@ class Character:
 	def hp(self, val):
 		self.__hp = utils.clamp(val, 0, self.max_hp)
 	
-
-	
 	#TODO : Méthode "compute_damage"
-	
-
+	def compute_damage(a, d):
+		level_level = (2 * self.level) / 5 + 2
+		power_weapon = 
 
 
 def deal_damage(attacker, defender):
@@ -88,5 +87,6 @@ def run_battle(c1, c2):
 			print(f"{defender.name } is sleeping with the fishes.")
 			break
 		# Échanger attaquant/défendeur
+		attacker, defender = defender, attacker
 	# TODO: Retourner nombre de tours effectués
-	return ...
+	return turns
